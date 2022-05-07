@@ -8,10 +8,9 @@ import {
 } from "react-router-dom";
 
 // import page components
+
 import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import SubmittedForm from "./pages/SubmittedForm";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -24,10 +23,7 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/products">Products</Link>
           </li>
         </ul>
       </nav>
@@ -36,9 +32,7 @@ function App() {
       {/* Start of routing */}
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<AboutUs/>}/>
-        <Route path="/contact" element={<ContactUs/>}/>
-        <Route path="/submitted-form" element={<SubmittedForm/>}/>
+        <Route path="/products/*" element={<Products/>}/>
       </Routes>
       {/* End of routing */}
 
