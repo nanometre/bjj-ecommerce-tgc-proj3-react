@@ -6,20 +6,20 @@ export default function ProductDetailsPage() {
     const params = useParams()
     const productId = params.product_id
     const [product, setProduct] = useState({})
-    const productContext = useContext(ProductContext)
+    const { getProductById } = useContext(ProductContext)
 
     useEffect(() => {
-        const fetchProduct = () => {
-            let tempProduct = productContext.getProductById(parseInt(productId))
+        const getProduct = () => {
+            let tempProduct = getProductById(parseInt(productId))
             setProduct(tempProduct)
         }
-        fetchProduct()
+        getProduct()
     }, [productId])
-
+    console.log(product)
     return <React.Fragment>
         <h3>Product Details</h3>
         <ul>
-            <li>ID: {product.id}</li>
+            <li>ID: {product.product_id}</li>
             <li>Name: {product.product_name}</li>
             <li>Cost: {product.cost}</li>
         </ul>

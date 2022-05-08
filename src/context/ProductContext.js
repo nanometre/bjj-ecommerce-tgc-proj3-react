@@ -1,41 +1,45 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import { createContext, useState, useEffect } from 'react';
+import axiosAPI from '../api/axiosAPI';
 
-const ProductContext = React.createContext({});
+const ProductContext = createContext({});
 export default ProductContext;
 
-export const ProductProvider = (props) => {
-    // const productAPI = await axios.get('https://bjj-ecom-tgc-proj3-express.herokuapp.com/api/products')
-    // console.log(productAPI)
-    const [products, setProducts] = useState([
-        {
-            id: 1,
-            product_name: "Brown Rice Cookies",
-            cost: 9.99
-        },
-        {
-            id: 2,
-            product_name: "Soya Bean Milkshake",
-            cost: 12.50
-        },
-        {
-            id: 3,
-            product_name: "Mock Meat Burger",
-            cost: 15.00
-        }
-    ])
+export const ProductProvider = ({ children }) => {
+    const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    
+    useEffect(() => {
+        getProducts()
+    }, [])
 
-    const productContext = {
-        products: () => {
-            return products;
-        },
-        getProductById: (productId) => {
-            return products.filter(p => p.id === productId)[0]
+    const getProducts = async () => {
+        try {
+            const response = await axiosAPI.get('/products')
+            setProducts(response.data)
+            setIsLoading(false)
+        } catch (err) {
+            console.log(err.message)
         }
     }
 
-    return <ProductContext.Provider value={productContext}>
-        {props.children}
+    const getProductById = (productId) => {
+        return products.filter(p => p.product_id === productId)[0]
+        // try {
+        //     const response = await axiosAPI.get(`/products/${productId}/variant`)
+        //     setIsLoading(false)
+        //     return response.data
+        // } catch (err) {
+        //     console.log(err.message)
+        // }
+        
+    }
+
+    return <ProductContext.Provider value={{
+        products,
+        getProductById,
+        isLoading
+    }}>
+        {children}
     </ProductContext.Provider>
 }
 
