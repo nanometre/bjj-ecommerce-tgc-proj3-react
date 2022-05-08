@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 const ProductContext = React.createContext({});
+export default ProductContext;
 
 export const ProductProvider = (props) => {
+    // const productAPI = await axios.get('https://bjj-ecom-tgc-proj3-express.herokuapp.com/api/products')
+    // console.log(productAPI)
     const [products, setProducts] = useState([
         {
             id: 1,
@@ -35,4 +39,3 @@ export const ProductProvider = (props) => {
     </ProductContext.Provider>
 }
 
-export default ProductContext;

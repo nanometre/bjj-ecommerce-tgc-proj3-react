@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
     Routes,
     Route,
     Link
@@ -15,6 +14,7 @@ export default function Products() {
     return (
         <div>
             <ProductProvider>
+                <h3>Products</h3>
                 <Routes>
                     <Route path="/" element={<ProductListingPage />} />
                     <Route path="/:product_id" element={<ProductDetailsPage />} />

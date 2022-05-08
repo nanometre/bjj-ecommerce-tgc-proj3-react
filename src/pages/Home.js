@@ -3,7 +3,7 @@ import React from "react";
 export default function Home() {
     return (
         <React.Fragment>
-            <h1>Home Page</h1>
+            <h3>Home Page</h3>
         </React.Fragment>
     )
 }
