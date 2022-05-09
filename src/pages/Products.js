@@ -2,24 +2,20 @@ import React from "react";
 import {
     Routes,
     Route,
-    Link
 } from "react-router-dom"
 import { ProductProvider } from "../context/ProductContext";
-import ProductListingPage from "./ProductListingPage";
-import ProductDetailsPage from "./ProductDetailsPage";
+import ProductListings from "./ProductListings";
+import ProductDetails from "./ProductDetails";
 
 export default function Products() {
 
-
     return (
-        <div>
             <ProductProvider>
                 <h3>Products</h3>
                 <Routes>
-                    <Route path="/" element={<ProductListingPage />} />
-                    <Route path="/:product_id" element={<ProductDetailsPage />} />
+                    <Route path="/" element={<ProductListings />} />
+                    <Route path="/:product_id" element={<ProductDetails />} />
                 </Routes>
             </ProductProvider>
-        </div>
     )
 }

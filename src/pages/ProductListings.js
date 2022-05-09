@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import ProductContext from "../context/ProductContext";
 import { Link } from "react-router-dom";
-
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 export default function ProductListings() {
     const { products, isLoading } = useContext(ProductContext)

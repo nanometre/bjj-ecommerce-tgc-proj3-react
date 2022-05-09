@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router, // Used for routing
   Routes, // represents a group of route
   Route, // represents one pairing of URL to component
-  Link // represents a <a href> that you can click
 } from "react-router-dom";
 import "./assets/styles/app.css"
 
@@ -14,7 +13,7 @@ import "./assets/styles/app.css"
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import LoginRegister from "./pages/LoginRegister";
+import Users from "./pages/Users";
 import Products from "./pages/Products";
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
           <div id="content" className="container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/user" element={<LoginRegister />} />
+              <Route path="/users/*" element={<Users />} />
               <Route path="/products/*" element={<Products />} />
             </Routes>
           </div>
