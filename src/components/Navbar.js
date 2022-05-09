@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../context/UserContext";
+
 
 export default function Navbar() {
+    const { user, logout } = useContext(UserContext)
+
     return (
         <React.Fragment>
             {/* Navbar */}
@@ -12,7 +16,7 @@ export default function Navbar() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
+                        <span className="navbar-toggler-icon" />
                     </button>
 
                     {/* Collapsible wrapper */}
@@ -21,9 +25,9 @@ export default function Navbar() {
                         <Link to="/" className="navbar-brand">Grapple Gears</Link>
                         {/* Left links */}
                         <ul className="navbar-nav me-auto">
-                            
+
                             <li className="nav-item">
-                                    <Link to="/products" className="nav-link active">Products</Link>
+                                <Link to="/products" className="nav-link active">Products</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" href="#">Orders</a>
@@ -34,24 +38,34 @@ export default function Navbar() {
                     {/* Collapsible wrapper */}
 
                     {/* Right elements */}
-                    <div className="d-flex align-items-center">
-                        {/* Avatar */}
-                        <div className="dropdown">
-                            <a className="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                                id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: 'white'}}>
-                                <img src={require('../assets/images/avatar.png')} className="rounded-circle"
-                                    height="25" alt="Avatar" loading="lazy" />
-                            </a>
-                            <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                                <li>
-                                    <a className="dropdown-item" href="#">My profile</a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#">Logout</a>
-                                </li>
-                            </ul>
+                    {user ? (
+                        <div className="d-flex align-items-center">
+                            <span className="text-white mx-3">Hi, {user.first_name}</span>
+                            {/* Avatar */}
+                            <div className="dropdown d-inline-block">
+                                <a className="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                    id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
+                                    <img src={require('../assets/images/avatar.png')} className="rounded-circle"
+                                        height="25" alt="Avatar" loading="lazy" />
+                                </a>
+                                <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                    <li>
+                                        <a className="dropdown-item" href="#">My profile</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item" onClick={(evt) => {
+                                            evt.preventDefault()
+                                            logout()
+                                        }}>Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <div className="d-flex align-items-center">
+                            <Link to="/users/login-register" className="text-white">Login or Register</Link>
+                        </div>
+                    )}
                     {/* Right elements */}
                 </div>
                 {/* Container wrapper */}

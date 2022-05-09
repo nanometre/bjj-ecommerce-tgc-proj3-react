@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ProductContext from "../context/ProductContext";
-import { Link } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
 
 export default function ProductListings() {
@@ -8,10 +8,17 @@ export default function ProductListings() {
     return (isLoading ? (
         <Loading />
     ) : (
-        <ul>
-            {products.map(p =>
-                <Link to={"/products/" + p.product_id}><li key={p.product_id}>{p.product_name} - {(p.cost / 100).toFixed(2)}</li></Link>)}
-        </ul>
+        <div>
+            <h3>Products</h3>
+            <div className="d-flex flex-wrap justify-content-around">
+                {products.map((p, i) =>
+                    <React.Fragment key={i}>
+                        <ProductCard p={p} />
+                    </React.Fragment>
+                )}
+            </div>
+        </div>
+
     )
     )
 }

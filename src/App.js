@@ -2,10 +2,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
-  BrowserRouter as Router, // Used for routing
-  Routes, // represents a group of route
-  Route, // represents one pairing of URL to component
+  BrowserRouter as Router,
+  Routes,
+  Route,
 } from "react-router-dom";
 import "./assets/styles/app.css"
 
@@ -16,29 +18,30 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Products from "./pages/Products";
 
+// import provider
+import { UserProvider } from "./context/UserContext";
+
 function App() {
   return (
     <div className="App">
       <div id="page">
         <Router>
-          {/* Start of static Navbar */}
-          <Navbar id="nav" />
-          {/* End of static Navbar */}
-
-          {/* Start of routing */}
-          <div id="content" className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/users/*" element={<Users />} />
-              <Route path="/products/*" element={<Products />} />
-            </Routes>
-          </div>
-          {/* End of routing */}
+          <UserProvider>
+            {/* Navbar */}
+            <Navbar id="nav" />
+            {/* Routes */}
+            <div id="content" className="container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/users/*" element={<Users />} />
+                <Route path="/products/*" element={<Products />} />
+              </Routes>
+            </div>
+          </UserProvider>
         </Router>
-
-        {/* Start of static Footer */}
-        <Footer id="footer"/>
-        {/* End of static Footer */}
+        {/* Footer */}
+        <Footer id="footer" />
+        <ToastContainer />
       </div>
     </div>
   );

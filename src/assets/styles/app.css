@@ -11,4 +11,5 @@
 
 #content {
     flex-grow: 1;
+    margin: 1.5rem auto;
 }
