@@ -4,7 +4,7 @@ export const loginSchema = yup.object().shape({
     email: yup.string()
         .required("Email is required")
         .email("Email is not valid"),
-    password: yup. string()
+    password: yup.string()
         .required("Password is required")
 })
 
@@ -27,4 +27,14 @@ export const registerSchema = yup.object().shape({
     confirm_password: yup.string()
         .required("Confirm password is required")
         .oneOf([yup.ref('register_password'), null], 'Passwords do not match')
+})
+
+export const quantitySchema = yup.object().shape({
+    quantity: yup.number()
+        .typeError('Quantity must be a number')
+        .required("Quantity is required")
+        .min(1, 'Quantity must be more than 1'),
+    variant_id: yup.string()
+        .required("Please select an option")
+        .min(1, "Please select an option")
 })

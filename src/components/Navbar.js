@@ -22,7 +22,10 @@ export default function Navbar() {
                     {/* Collapsible wrapper */}
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         {/* Navbar brand */}
-                        <Link to="/" className="navbar-brand">Grapple Gears</Link>
+                        <Link to="/" className="navbar-brand">
+                            <img src={require('../assets/images/favicon.ico')} style={{height: '2rem', margin: '0 0.25rem'}} alt="Brand Logo"/>
+                            Grapple Gears
+                        </Link>
                         {/* Left links */}
                         <ul className="navbar-nav me-auto">
 

@@ -83,7 +83,7 @@ export default function UserLoginRegister() {
                             <div className="invalid-feedback">{errorsLogin.password?.message}</div>
                         </div>
                         <div className='custom-btn-group'>
-                            <button type="submit" className="btn btn-light btn-outline-dark">Login</button>
+                            <button type="submit" className="btn btn-dark btn-outline-light">Login</button>
                         </div>
                     </div>
                 </form>
@@ -147,7 +147,7 @@ export default function UserLoginRegister() {
                             <div className="invalid-feedback">{errorsRegister.confirm_password?.message}</div>
                         </div>
                         <div className='custom-btn-group'>
-                            <button type="submit" className="btn btn-light btn-outline-dark">Register</button>
+                            <button type="submit" className="btn btn-dark btn-outline-light">Register</button>
                         </div>
                     </div>
                 </form>

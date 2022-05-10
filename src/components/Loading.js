@@ -14,11 +14,11 @@ export default function Loading() {
     };
 
     return (
-        <div style={{ margin: 'auto' }}>
+        <div className='m-auto'>
             <Lottie
                 options={defaultOptions}
-                height={'45%'}
-                width={'45%'}
+                height={'50%'}
+                width={'50%'}
             />
         </div>
     )

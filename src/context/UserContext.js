@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
                 } catch (err) {
                     toast.error('Unable to connect to server. Please login again.', {
                         position: "bottom-right",
-                        autoClose: 2500,
+                        autoClose: 3500,
                         toastId: 'getUserError'
                     })
                     localStorage.removeItem("token")
@@ -76,7 +76,7 @@ export const UserProvider = ({ children }) => {
                 } catch (err) {
                     toast.error('Unable to get user data. Please login again.', {
                         position: "bottom-right",
-                        autoClose: 2500,
+                        autoClose: 3500,
                         toastId: 'getUserError'
                     })
                     localStorage.removeItem("token")
@@ -106,7 +106,7 @@ export const UserProvider = ({ children }) => {
                     } catch (err) {
                         toast.error('Session expired. Please login again.', {
                             position: "bottom-right",
-                            autoClose: 2500,
+                            autoClose: 3500,
                             toastId: 'getUserError'
                         })
                         localStorage.removeItem("token")
@@ -117,7 +117,7 @@ export const UserProvider = ({ children }) => {
                 newAccessToken()
                 toast.info('getting new access token. remember to delete and change to 1h', {
                     position: "bottom-right",
-                    autoClose: 2500,
+                    autoClose: 3500,
                     toastId: 'accesstoken'
                 })
             }, 1000 * 60)
@@ -144,7 +144,7 @@ export const UserProvider = ({ children }) => {
             }
             toast.success('Successfully registered an account.', {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'loginSuccess'
             })
             setIsLoading(false)
@@ -158,7 +158,7 @@ export const UserProvider = ({ children }) => {
             }
             toast.error(errorMessage, {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'loginError'
             })
             setIsLoading(false)
@@ -179,7 +179,7 @@ export const UserProvider = ({ children }) => {
             }
             toast.success('Logged In.', {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'loginSuccess'
             })
             setIsLoading(false)
@@ -193,7 +193,7 @@ export const UserProvider = ({ children }) => {
             }
             toast.error(errorMessage, {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'loginError'
             })
             setIsLoading(false)
@@ -210,14 +210,14 @@ export const UserProvider = ({ children }) => {
             setUser(null)
             toast.success('Logged Out.', {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'logoutSuccess'
             })
             navigate('/')
         } catch (err) {
             toast.error('Something went wrong. Please login again.', {
                 position: "bottom-right",
-                autoClose: 2500,
+                autoClose: 3500,
                 toastId: 'logoutError'
             })
         }
