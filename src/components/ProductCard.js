@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ProductCard(props) {
-    console.log(props.p)
+    // console.log(props.p)
     return (
         <div className="card shadow-lg rounded-3 border border-dark m-3" style={{ width: "18rem" }}>
             <img src={props.p.variants[0].product_image_url} className="card-img-top" alt="Product Image" />

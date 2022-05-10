@@ -18,8 +18,8 @@ export const UserProvider = ({ children }) => {
     const [registerData, setRegisterData] = useState({
         "first_name": '',
         "last_name": '',
-        "email": '',
-        "password": ''
+        "register_email": '',
+        "register_password": ''
     })
 
     const navigate = useNavigate()
@@ -128,7 +128,8 @@ export const UserProvider = ({ children }) => {
     }, [token])
 
     // context functions
-    const register = async (registerData) => {
+    const userRegister = async (registerData) => {
+        setIsLoading(true)
         try {
             const registerResponse = await axiosAPI.post('/users/register', registerData)
             if (registerResponse) {
@@ -137,8 +138,8 @@ export const UserProvider = ({ children }) => {
                 setRegisterData({
                     "first_name": '',
                     "last_name": '',
-                    "email": '',
-                    "password": ''
+                    "register_email": '',
+                    "register_password": ''
                 })
             }
             toast.success('Successfully registered an account.', {
@@ -146,6 +147,7 @@ export const UserProvider = ({ children }) => {
                 autoClose: 2500,
                 toastId: 'loginSuccess'
             })
+            setIsLoading(false)
             navigate('/')
         } catch (err) {
             let errorMessage
@@ -159,10 +161,12 @@ export const UserProvider = ({ children }) => {
                 autoClose: 2500,
                 toastId: 'loginError'
             })
+            setIsLoading(false)
         }
     }
 
     const login = async (loginData) => {
+        setIsLoading(true)
         try {
             const loginResponse = await axiosAPI.post('/users/login', loginData)
             if (loginResponse) {
@@ -178,7 +182,8 @@ export const UserProvider = ({ children }) => {
                 autoClose: 2500,
                 toastId: 'loginSuccess'
             })
-            navigate('/')
+            setIsLoading(false)
+            navigate(-1)
         } catch (err) {
             let errorMessage
             if (err?.response?.status === 401) {
@@ -191,6 +196,7 @@ export const UserProvider = ({ children }) => {
                 autoClose: 2500,
                 toastId: 'loginError'
             })
+            setIsLoading(false)
         }
     }
 
@@ -225,7 +231,7 @@ export const UserProvider = ({ children }) => {
             isLoading, setIsLoading,
             loginData, setLoginData,
             registerData, setRegisterData,
-            register,
+            userRegister,
             login,
             logout
         }}>
