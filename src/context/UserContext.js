@@ -120,7 +120,7 @@ export const UserProvider = ({ children }) => {
                     autoClose: 3500,
                     toastId: 'accesstoken'
                 })
-            }, 1000 * 60)
+            }, 1000 * 60 * 5)
 
             // clean up function for useEffect to clear interval on unmount
             return () => clearInterval(refreshAccessToken);
@@ -201,6 +201,7 @@ export const UserProvider = ({ children }) => {
     }
 
     const logout = async () => {
+        setIsLoading(true)
         try {
             await axiosAPI.post('/users/logout', {
                 refreshToken: token.refreshToken
@@ -213,6 +214,7 @@ export const UserProvider = ({ children }) => {
                 autoClose: 3500,
                 toastId: 'logoutSuccess'
             })
+            setIsLoading(false)
             navigate('/')
         } catch (err) {
             toast.error('Something went wrong. Please login again.', {
@@ -220,6 +222,7 @@ export const UserProvider = ({ children }) => {
                 autoClose: 3500,
                 toastId: 'logoutError'
             })
+            setIsLoading(false)
         }
     }
 

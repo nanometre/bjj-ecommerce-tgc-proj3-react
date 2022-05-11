@@ -32,7 +32,7 @@ export default function ProductDetails() {
         if (selection.variant_id !== "") {
             const variant = oneProduct.variants.filter(v => v.variant_id === parseInt(selection.variant_id))
             setTempVariant(variant[0])
-        } else if (selection.variant_id == "") {
+        } else if (selection.variant_id === "") {
             setTempVariant({})
         }
     }, [selection])
@@ -82,7 +82,6 @@ export default function ProductDetails() {
                                 <select className={`form-select form-select-sm form-control ${errors.variant_id ? 'is-invalid' : ''}`}
                                     aria-label="form-select-sm"
                                     name="variant_id"
-                                    defaultValue=""
                                     value={selection.variant_id}
                                     {...register('variant_id', {onChange: updateSelection})}
                                     disabled={oneProduct.variants.length === 0}>
@@ -124,15 +123,15 @@ export default function ProductDetails() {
                                 data-bs-parent="#moreDetailsAccordion">
                                 <div className="accordion-body row">
                                     <div className="col">
-                                        <p>Brand: <span className="detail-info">{oneProduct.product?.brand?.brand_name}</span></p>
-                                        <p>Category: <span className="detail-info">{oneProduct.product?.category?.category_name}</span></p>
-                                        <p>Material: <span className="detail-info">{oneProduct.product?.material?.material_name}</span></p>
+                                        <p><span className="text-muted">Brand:</span> {oneProduct.product?.brand?.brand_name}</p>
+                                        <p><span className="text-muted">Category:</span> {oneProduct.product?.category?.category_name}</p>
+                                        <p><span className="text-muted">Material:</span> {oneProduct.product?.material?.material_name}</p>
                                     </div>
                                     <div className="col">
                                         {oneProduct.product?.weave?.weave_name === "N/A"
                                             ? null
-                                            : <p>Weave: <span className="detail-info">{oneProduct.product?.weave?.weave_name}</span></p>}
-                                        <p>Weight: <span className="detail-info">{oneProduct.product?.weight / 1000} kg</span></p>
+                                            : <p><span className="text-muted">Weave:</span> {oneProduct.product?.weave?.weave_name}</p>}
+                                        <p><span className="text-muted">Weight:</span> {oneProduct.product?.weight / 1000} kg</p>
                                     </div>
                                 </div>
                             </div>

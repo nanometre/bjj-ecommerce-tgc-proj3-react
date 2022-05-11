@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 
 export default function ProductListings() {
     const { products, isLoading } = useContext(ProductContext)
+    
     return (isLoading ? (
         <Loading />
     ) : (

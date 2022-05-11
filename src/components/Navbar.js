@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../context/UserContext";
+import CartContext from "../context/CartContext";
 
 
 export default function Navbar() {
     const { user, logout } = useContext(UserContext)
+    const { cart } = useContext(CartContext)
 
     return (
         <React.Fragment>
@@ -23,7 +25,7 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         {/* Navbar brand */}
                         <Link to="/" className="navbar-brand">
-                            <img src={require('../assets/images/favicon.ico')} style={{height: '2rem', margin: '0 0.25rem'}} alt="Brand Logo"/>
+                            <img src={require('../assets/images/favicon.ico')} style={{ height: '2rem', margin: '0 0.25rem' }} alt="Brand Logo" />
                             Grapple Gears
                         </Link>
                         {/* Left links */}
@@ -33,7 +35,7 @@ export default function Navbar() {
                                 <Link to="/products" className="nav-link active">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" href="#">Orders</a>
+                                <Link to="/orders" className="nav-link active">Orders</Link>
                             </li>
                         </ul>
                         {/* Left links */}
@@ -43,17 +45,28 @@ export default function Navbar() {
                     {/* Right elements */}
                     {user ? (
                         <div className="d-flex align-items-center">
-                            <span className="text-white mx-3">Hi, {user.first_name}</span>
+                            <span className="text-white me-3">Hi, {user.first_name}</span>
                             {/* Avatar */}
                             <div className="dropdown d-inline-block">
                                 <a className="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                                     id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
                                     <img src={require('../assets/images/avatar.png')} className="rounded-circle"
                                         height="25" alt="Avatar" loading="lazy" />
+                                    <span class="position-absolute top-0 start-50 translate-middle p-2 bg-danger border border-dark rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                                     <li>
-                                        <a className="dropdown-item" href="#">My profile</a>
+                                        <Link to="/cart" className="dropdown-item">
+                                            My Cart
+                                            {cart.length !== 0
+                                                ? <span className="badge bg-danger mx-1">
+                                                    {cart.length}
+                                                    <span className="visually-hidden">unread messages</span>
+                                                </span>
+                                                : null}
+                                        </Link>
                                     </li>
                                     <li>
                                         <a className="dropdown-item" onClick={(evt) => {
@@ -66,7 +79,7 @@ export default function Navbar() {
                         </div>
                     ) : (
                         <div className="d-flex align-items-center">
-                            <Link to="/users/login-register" className="text-white">Login or Register</Link>
+                            <Link to="/users/login-register" className="text-white nav-link">Login or Register</Link>
                         </div>
                     )}
                     {/* Right elements */}
