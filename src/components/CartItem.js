@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function CartItem(props) {
     console.log(props.c)
+    const [quantity, setQuantity] = useState(null)
+    
     return (
         <div className="card rounded-3 mb-4 align-self-center">
             <div className="card-body p-4">
@@ -25,7 +27,7 @@ export default function CartItem(props) {
                         <h5 className="mb-0">SGD {(props.c.variant.product.cost * props.c.quantity / 100).toFixed(2)}</h5>
                     </div>
                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" className="text-dark"><i class="bi bi-trash"></i></a>
+                        <a href="#!" className="text-dark"><i className="bi bi-trash"></i></a>
                     </div>
                 </div>
             </div>

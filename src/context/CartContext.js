@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import UserContext from "./UserContext";
 import axiosAPI from "../api/axiosAPI";
 import { toast } from "react-toastify";
+import { loadStripe } from "@stripe/stripe-js";
 
 const CartContext = createContext({})
 export default CartContext
@@ -13,21 +14,32 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [checkoutResponse, setCheckoutResponse] = useState({})
     const [isLoading, setIsLoading] = useState(true)
-    // useEffect to get cart items on componenet did moint
+    // useEffect to get cart items on componenet did mount
     useEffect(() => {
         getCart()
     }, [token])
+
+    useEffect(() => {
+        const stripeCheckout = async () => {
+            const stripePromise = loadStripe(checkoutResponse.publishableKey)
+            const stripe = await stripePromise
+            stripe.redirectToCheckout({ sessionId: checkoutResponse.sessionId })
+        }
+        if (Object.keys(checkoutResponse).length !== 0) {
+            stripeCheckout()
+        }
+    }, [checkoutResponse])
 
     //context functions
     const getCart = async () => {
         if (token) {
             try {
-                const cartResponse = await axiosAPI.get('/cart', {
+                const response = await axiosAPI.get('/cart', {
                     headers: {
                         Authorization: `Bearer ${token.accessToken}`
                     }
                 })
-                setCart(cartResponse.data)
+                setCart(response.data)
                 setIsLoading(false)
             } catch {
                 toast.error('Unable to connect to server. Please try again later.', {
@@ -44,12 +56,12 @@ export const CartProvider = ({ children }) => {
     const checkout = async () => {
         if (token) {
             try {
-                const checkoutResponse = await axiosAPI.get('/checkout', {
+                const response = await axiosAPI.get('/checkout', {
                     headers: {
                         Authorization: `Bearer ${token.accessToken}`
                     }
                 })
-                setCheckoutResponse(checkoutResponse.data)
+                setCheckoutResponse(response.data)
             } catch (err) {
 
             }

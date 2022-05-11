@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
 import Loading from "../components/Loading";
+// import CHeckout
 import CartItem from "../components/CartItem"
 import "../assets/styles/form.css"
 
 export default function Cart() {
-    const { cart, checkoutResponse, isLoading, checkout } = useContext(CartContext)
+    const { cart, isLoading, checkout } = useContext(CartContext)
 
-    const onCheckoutSubmit = async () => {
-        await checkout()
-        console.log(checkoutResponse)
+    const onCheckoutSubmit = () => {
+         checkout()
     }
 
     return (isLoading ? (

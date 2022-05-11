@@ -52,8 +52,8 @@ export default function Navbar() {
                                     id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
                                     <img src={require('../assets/images/avatar.png')} className="rounded-circle"
                                         height="25" alt="Avatar" loading="lazy" />
-                                    <span class="position-absolute top-0 start-50 translate-middle p-2 bg-danger border border-dark rounded-circle">
-                                        <span class="visually-hidden">New alerts</span>
+                                    <span className="position-absolute top-0 start-50 translate-middle p-2 bg-danger border border-dark rounded-circle">
+                                        <span className="visually-hidden">New alerts</span>
                                     </span>
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
