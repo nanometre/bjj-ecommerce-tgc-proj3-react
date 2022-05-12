@@ -29,7 +29,7 @@ export const registerSchema = yup.object().shape({
         .oneOf([yup.ref('register_password'), null], 'Passwords do not match')
 })
 
-export const quantitySchema = yup.object().shape({
+export const addToCartQuantitySchema = yup.object().shape({
     quantity: yup.number()
         .typeError('Quantity must be a number')
         .required("Quantity is required")
@@ -37,4 +37,11 @@ export const quantitySchema = yup.object().shape({
     variant_id: yup.string()
         .required("Please select an option")
         .min(1, "Please select an option")
+})
+
+export const updateCartQuantitySchema = yup.object().shape({
+    quantity: yup.number()
+        .typeError('Quantity must be a number')
+        .required("Quantity is required")
+        .min(1, 'Quantity must be more than 1')
 })

@@ -9,8 +9,6 @@ export const ProductProvider = ({ children }) => {
     // states
     const [products, setProducts] = useState([])
     const [oneProduct, setOneProduct] = useState({product: "", variants: []})
-    const [selection, setSelection] = useState({variant_id: "", quantity: ""})
-    const [tempVariant, setTempVariant] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     // useEffect to get all products on component did mount
     useEffect(() => {
@@ -47,8 +45,6 @@ export const ProductProvider = ({ children }) => {
     return <ProductContext.Provider value={{
         products,
         oneProduct, setOneProduct, 
-        selection, setSelection,
-        tempVariant, setTempVariant,
         getProductById,
         isLoading, setIsLoading,
     }}>

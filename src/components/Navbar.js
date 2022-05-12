@@ -30,12 +30,11 @@ export default function Navbar() {
                         </Link>
                         {/* Left links */}
                         <ul className="navbar-nav me-auto">
-
                             <li className="nav-item">
                                 <Link to="/products" className="nav-link active">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/orders" className="nav-link active">Orders</Link>
+                                <Link to="/contact-us" className="nav-link active">Contact Us</Link>
                             </li>
                         </ul>
                         {/* Left links */}
@@ -52,9 +51,11 @@ export default function Navbar() {
                                     id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
                                     <img src={require('../assets/images/avatar.png')} className="rounded-circle"
                                         height="25" alt="Avatar" loading="lazy" />
-                                    <span className="position-absolute top-0 start-50 translate-middle p-2 bg-danger border border-dark rounded-circle">
-                                        <span className="visually-hidden">New alerts</span>
-                                    </span>
+                                    {cart.length !== 0
+                                        ? <span className="position-absolute top-0 start-50 translate-middle p-2 bg-danger border border-dark rounded-circle">
+                                            <span className="visually-hidden">cart items</span>
+                                        </span>
+                                        : null}
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                                     <li>
@@ -63,10 +64,13 @@ export default function Navbar() {
                                             {cart.length !== 0
                                                 ? <span className="badge bg-danger mx-1">
                                                     {cart.length}
-                                                    <span className="visually-hidden">unread messages</span>
+                                                    <span className="visually-hidden">cart items</span>
                                                 </span>
                                                 : null}
                                         </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/orders" className="dropdown-item">My Orders</Link>
                                     </li>
                                     <li>
                                         <a className="dropdown-item" onClick={(evt) => {

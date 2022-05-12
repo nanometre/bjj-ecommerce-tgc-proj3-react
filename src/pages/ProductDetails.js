@@ -1,8 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ProductContext from "../context/ProductContext";
+import CartContext from "../context/CartContext";
 import Loading from "../components/Loading";
-import { quantitySchema } from "../assets/schema";
+import { addToCartQuantitySchema } from "../assets/schema";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Carousel } from "react-responsive-carousel";
@@ -12,12 +13,17 @@ import "../assets/styles/product.css"
 export default function ProductDetails() {
     // context
     const {
-        oneProduct, selection, setSelection, tempVariant, setTempVariant,
-        getProductById, isLoading, setIsLoading
+        oneProduct, getProductById, isLoading, setIsLoading
     } = useContext(ProductContext)
+    const {
+        selection, setSelection, tempVariant, setTempVariant, 
+        getCart, addToCart
+    } = useContext(CartContext)
+
     // params
     const params = useParams()
     const productId = params.product_id
+
     // useEffect on params change
     useEffect(() => {
         const getProduct = async () => {
@@ -27,6 +33,7 @@ export default function ProductDetails() {
         getProduct()
         setSelection({ variant_id: "", quantity: "" })
     }, [productId])
+
     // useEffec on variant selection change
     useEffect(() => {
         if (selection.variant_id !== "") {
@@ -36,9 +43,10 @@ export default function ProductDetails() {
             setTempVariant({})
         }
     }, [selection])
+
     // handle selection and quantity form
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(quantitySchema)
+        resolver: yupResolver(addToCartQuantitySchema)
     })
     const updateSelection = (evt) => {
         setSelection({
@@ -46,10 +54,11 @@ export default function ProductDetails() {
             [evt.target.name]: evt.target.value
         })
     }
-    const onSelectionSubmit = () => {
-        console.log(selection)
+    const onSelectionSubmit = async () => {
+        await addToCart()
+        await getCart()
     }
-
+    // return jsx
     return (isLoading ? (
         <Loading />
     ) : (
@@ -106,8 +115,7 @@ export default function ProductDetails() {
                         {Object.keys(tempVariant).length === 0 ? null : <p className="mt-1 text-danger">{tempVariant.stock} stock available!</p>}
                         {oneProduct.variants.length === 0 ? <p className="mt-1 text-danger">This product is not in stock!</p> : null}
                         <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-light btn-outline-dark" hidden={oneProduct.variants.length === 0}>Add to cart</button>
-                            <button className="btn btn-dark btn-outline-light" hidden={oneProduct.variants.length === 0}>Buy it now</button>
+                            <button type="submit" className="btn btn-dark btn-outline-light" hidden={oneProduct.variants.length === 0}>Add to cart</button>
                         </div>
                     </form>
                     <p>{oneProduct.product?.description}</p>
@@ -139,8 +147,6 @@ export default function ProductDetails() {
                     </div>
                 </div>
             </div>
-
-
         </React.Fragment>
     ))
 }

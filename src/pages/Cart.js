@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
-import Loading from "../components/Loading";
-// import CHeckout
+import UserContext from "../context/UserContext"
 import CartItem from "../components/CartItem"
 import "../assets/styles/form.css"
 
 export default function Cart() {
-    const { cart, isLoading, checkout } = useContext(CartContext)
+    const { cart, checkout } = useContext(CartContext)
+    const { token } = useContext(UserContext)
 
     const onCheckoutSubmit = () => {
-         checkout()
+        checkout()
     }
 
-    return (isLoading ? (
-        <Loading />
+    return (!token ? (
+        <h5>Please login to access the cart</h5>
     ) : (
         <React.Fragment>
             <div className="h-100 rounded-3 shadow-lg">
@@ -22,9 +22,11 @@ export default function Cart() {
                         <div className="col-10">
                             <h3 className="mb-3 text-black">Shopping Cart</h3>
                             {cart?.map((c, i) =>
-                                <CartItem c={c} i={i} />
+                                <React.Fragment key={i}>
+                                    <CartItem c={c} />
+                                </React.Fragment>
                             )}
-                            <h6>Total: </h6>
+                            <h6>Total: {(cart?.reduce((sum, cartItem)=> sum + (cartItem.quantity * (cartItem.variant.product.cost / 100)), 0)).toFixed(2)}</h6>
                             <div className="custom-btn-group">
                                 <button className="btn btn-dark btn-outline-light" onClick={onCheckoutSubmit}>Checkout</button>
                             </div>

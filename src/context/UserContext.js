@@ -115,12 +115,7 @@ export const UserProvider = ({ children }) => {
                     }
                 }
                 newAccessToken()
-                toast.info('getting new access token. remember to delete and change to 1h', {
-                    position: "bottom-right",
-                    autoClose: 3500,
-                    toastId: 'accesstoken'
-                })
-            }, 1000 * 60 * 5)
+            }, 1000 * 60 * 60) // refresh access token every 1h
 
             // clean up function for useEffect to clear interval on unmount
             return () => clearInterval(refreshAccessToken);

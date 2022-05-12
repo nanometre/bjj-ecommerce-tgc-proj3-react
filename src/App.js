@@ -23,6 +23,7 @@ import Orders from "./pages/Orders";
 // import provider
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
+import ContactUs from "./pages/ContactUs";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <div id="content" className="container">
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/contact-us" element={<ContactUs />} />
                   <Route path="/users/*" element={<Users />} />
                   <Route path="/products/*" element={<Products />} />
                   <Route path="/cart" element={<Cart />} />
