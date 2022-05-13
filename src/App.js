@@ -51,7 +51,7 @@ function App() {
         </Router>
         {/* Footer */}
         <Footer id="footer" />
-        <ToastContainer />
+        <ToastContainer position="bottom-right"/>
       </div>
     </div>
   );

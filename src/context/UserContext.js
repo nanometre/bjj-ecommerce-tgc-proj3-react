@@ -45,8 +45,6 @@ export const UserProvider = ({ children }) => {
                         }))
                 } catch (err) {
                     toast.error('Unable to connect to server. Please login again.', {
-                        position: "bottom-right",
-                        autoClose: 3500,
                         toastId: 'getUserError'
                     })
                     localStorage.removeItem("token")
@@ -75,8 +73,6 @@ export const UserProvider = ({ children }) => {
                     }
                 } catch (err) {
                     toast.error('Unable to get user data. Please login again.', {
-                        position: "bottom-right",
-                        autoClose: 3500,
                         toastId: 'getUserError'
                     })
                     localStorage.removeItem("token")
@@ -105,8 +101,6 @@ export const UserProvider = ({ children }) => {
                             }))
                     } catch (err) {
                         toast.error('Session expired. Please login again.', {
-                            position: "bottom-right",
-                            autoClose: 3500,
                             toastId: 'getUserError'
                         })
                         localStorage.removeItem("token")
@@ -115,7 +109,7 @@ export const UserProvider = ({ children }) => {
                     }
                 }
                 newAccessToken()
-            }, 1000 * 60 * 60) // refresh access token every 1h
+            }, 1000 * 60 * 55) // refresh access token every 1h
 
             // clean up function for useEffect to clear interval on unmount
             return () => clearInterval(refreshAccessToken);
@@ -124,9 +118,11 @@ export const UserProvider = ({ children }) => {
 
     // context functions
     const userRegister = async (registerData) => {
-        setIsLoading(true)
         try {
-            const registerResponse = await axiosAPI.post('/users/register', registerData)
+            const registerResponse = await toast.promise(axiosAPI.post('/users/register', registerData), {
+                pending: 'Registering an account',
+                success: 'Successfully registered an account.'
+            })
             if (registerResponse) {
                 setToken(registerResponse.data)
                 localStorage.setItem("token", JSON.stringify(registerResponse.data))
@@ -137,12 +133,6 @@ export const UserProvider = ({ children }) => {
                     "register_password": ''
                 })
             }
-            toast.success('Successfully registered an account.', {
-                position: "bottom-right",
-                autoClose: 3500,
-                toastId: 'loginSuccess'
-            })
-            setIsLoading(false)
             navigate('/')
         } catch (err) {
             let errorMessage
@@ -152,18 +142,17 @@ export const UserProvider = ({ children }) => {
                 errorMessage = "Something went wrong. Please try again."
             }
             toast.error(errorMessage, {
-                position: "bottom-right",
-                autoClose: 3500,
-                toastId: 'loginError'
+                toastId: 'registerError'
             })
-            setIsLoading(false)
         }
     }
 
     const login = async (loginData) => {
-        setIsLoading(true)
         try {
-            const loginResponse = await axiosAPI.post('/users/login', loginData)
+            const loginResponse = await toast.promise(axiosAPI.post('/users/login', loginData), {
+                pending: 'Logging you in',
+                success: 'Successfully logged in'
+            })
             if (loginResponse) {
                 setToken(loginResponse.data)
                 localStorage.setItem("token", JSON.stringify(loginResponse.data))
@@ -172,12 +161,6 @@ export const UserProvider = ({ children }) => {
                     "password": ''
                 })
             }
-            toast.success('Logged In.', {
-                position: "bottom-right",
-                autoClose: 3500,
-                toastId: 'loginSuccess'
-            })
-            setIsLoading(false)
             navigate(-1)
         } catch (err) {
             let errorMessage
@@ -187,37 +170,27 @@ export const UserProvider = ({ children }) => {
                 errorMessage = "Something went wrong. Please try again."
             }
             toast.error(errorMessage, {
-                position: "bottom-right",
-                autoClose: 3500,
                 toastId: 'loginError'
             })
-            setIsLoading(false)
         }
     }
 
     const logout = async () => {
-        setIsLoading(true)
         try {
-            await axiosAPI.post('/users/logout', {
+            await toast.promise(axiosAPI.post('/users/logout', {
                 refreshToken: token.refreshToken
+            }), {
+                pending: 'Logging you out',
+                success: 'Successfully logged out.'
             })
             localStorage.removeItem("token")
             setToken(null)
             setUser(null)
-            toast.success('Logged Out.', {
-                position: "bottom-right",
-                autoClose: 3500,
-                toastId: 'logoutSuccess'
-            })
-            setIsLoading(false)
             navigate('/')
         } catch (err) {
             toast.error('Something went wrong. Please login again.', {
-                position: "bottom-right",
-                autoClose: 3500,
                 toastId: 'logoutError'
             })
-            setIsLoading(false)
         }
     }
 

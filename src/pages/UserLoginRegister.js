@@ -68,7 +68,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsLogin.email ? 'is-invalid' : ''}`}
                                 id="loginEmail"
                                 placeholder='name@example.com' />
-                            <label htmlFor='loginEmail'>Email</label>
+                            <label htmlFor='loginEmail' className="text-muted">Email</label>
                             <div className="invalid-feedback">{errorsLogin.email?.message}</div>
                         </div>
                         <div className='form-floating mb-3'>
@@ -79,7 +79,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsLogin.password ? 'is-invalid' : ''}`}
                                 id="loginPassword"
                                 placeholder='password' />
-                            <label htmlFor='loginPassword'>Password</label>
+                            <label htmlFor='loginPassword' className="text-muted">Password</label>
                             <div className="invalid-feedback">{errorsLogin.password?.message}</div>
                         </div>
                         <div className='custom-btn-group'>
@@ -100,7 +100,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsRegister.first_name ? 'is-invalid' : ''}`}
                                 id="registerFirstName"
                                 placeholder='John' />
-                            <label htmlFor='registerFirstName'>First Name</label>
+                            <label htmlFor='registerFirstName' className="text-muted">First Name</label>
                             <div className="invalid-feedback">{errorsRegister.first_name?.message}</div>
                         </div>
                         <div className="form-floating mb-3">
@@ -111,7 +111,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsRegister.last_name ? 'is-invalid' : ''}`}
                                 id="registerLastName"
                                 placeholder='Doe' />
-                            <label htmlFor='registerLastName'>Last Name</label>
+                            <label htmlFor='registerLastName' className="text-muted">Last Name</label>
                             <div className="invalid-feedback">{errorsRegister.last_name?.message}</div>
                         </div>
                         <div className="form-floating mb-3">
@@ -122,7 +122,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsRegister.register_email ? 'is-invalid' : ''}`}
                                 id="registerEmail"
                                 placeholder='name@example.com' />
-                            <label htmlFor='registerEmail'>Email</label>
+                            <label htmlFor='registerEmail' className="text-muted">Email</label>
                             <div className="invalid-feedback">{errorsRegister.register_email?.message}</div>
                         </div>
                         <div className='form-floating mb-3'>
@@ -133,7 +133,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsRegister.register_password ? 'is-invalid' : ''}`}
                                 id="registerPassword"
                                 placeholder='password' />
-                            <label htmlFor='registerPassword'>Password</label>
+                            <label htmlFor='registerPassword' className="text-muted">Password</label>
                             <div className="invalid-feedback">{errorsRegister.register_password?.message}</div>
                         </div>
                         <div className='form-floating mb-3'>
@@ -143,7 +143,7 @@ export default function UserLoginRegister() {
                                 className={`form-control ${errorsRegister.confirm_password ? 'is-invalid' : ''}`}
                                 id="registerConfirmPassword"
                                 placeholder='password' />
-                            <label htmlFor='registerConfirmPassword'>Confirm Password</label>
+                            <label htmlFor='registerConfirmPassword' className="text-muted">Confirm Password</label>
                             <div className="invalid-feedback">{errorsRegister.confirm_password?.message}</div>
                         </div>
                         <div className='custom-btn-group'>

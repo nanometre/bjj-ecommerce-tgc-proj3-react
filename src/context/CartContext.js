@@ -73,21 +73,15 @@ export const CartProvider = ({ children }) => {
                     stock: tempVariant.stock - selection.quantity
                 })
                 toast.success('Added to cart', {
-                    position: 'bottom-right',
-                    autoClose: 3500,
                     toastId: 'addedToCart'
                 })
             } catch (err) {
                 if (err.response.status == 403) {
                     toast.error('Quantity exceeds stock available', {
-                        position: 'bottom-right',
-                        autoClose: 3500,
                         toastId: 'addToCartError'
                     })
                 } else {
                     toast.error('Unable to connect to server. Please try again later.', {
-                        position: 'bottom-right',
-                        autoClose: 3500,
                         toastId: 'addToCartError'
                     })
                 }
@@ -95,8 +89,6 @@ export const CartProvider = ({ children }) => {
             }
         } else if (!token) {
             toast.error('Please login to add to cart', {
-                position: 'bottom-right',
-                autoClose: 3500,
                 toastId: 'addToCartError'
             })
         }
@@ -113,21 +105,15 @@ export const CartProvider = ({ children }) => {
                         }
                     })
                 toast.success('Updated quantity', {
-                    position: 'bottom-right',
-                    autoClose: 3500,
                     toastId: 'updateCart'
                 })
             } catch (err) {
                 if (err.response.status == 403) {
                     toast.error('Quantity exceeds stock available', {
-                        position: 'bottom-right',
-                        autoClose: 3500,
                         toastId: 'updateCartError'
                     })
                 } else {
                     toast.error('Unable to connect to server. Please try again later.', {
-                        position: 'bottom-right',
-                        autoClose: 3500,
                         toastId: 'updateCartError'
                     })
                 }
@@ -136,30 +122,22 @@ export const CartProvider = ({ children }) => {
     }
 
     const deleteCartItem = async (variantId) => {
-        setIsLoading(true)
         if (token) {
             try {
-                await axiosAPI.get(`/cart/${variantId}/delete`, {
+                await toast.promise(axiosAPI.get(`/cart/${variantId}/delete`, {
                     headers: {
                         Authorization: `Bearer ${token.accessToken}`
                     }
+                }), {
+                    pending: 'Deleting cart item',
+                    success: 'Successfully deleted cart item.'
                 })
-                toast.success('Delete cart item', {
-                    position: 'bottom-right',
-                    autoClose: 3500,
-                    toastId: 'deletedCart'
-                })
-                setIsLoading(false)
             } catch {
                 toast.error('Unable to connect to server. Please try again later.', {
-                    position: 'bottom-right',
-                    autoClose: 3500,
                     toastId: 'deleteCartError'
                 })
-                setIsLoading(false)
             }
         }
-        setIsLoading(false)
     }
 
     const checkout = async () => {
@@ -173,21 +151,15 @@ export const CartProvider = ({ children }) => {
                 setCheckoutResponse(response.data)
             } catch (err) {
                 toast.error('Unable to checkout now. Please refresh and try again.', {
-                    position: "bottom-right",
-                    autoClose: 3500,
                     toastId: 'checkoutError'
                 })
             }
         } else if (token && cart.length == 0) {
             toast.error('Add something into your cart before checkout', {
-                position: "bottom-right",
-                autoClose: 3500,
                 toastId: 'noItemError'
             })
         } else {
             toast.error('Please login to checkout', {
-                position: "bottom-right",
-                autoClose: 3500,
                 toastId: 'checkoutError'
             })
             navigate('/users/login-register')
