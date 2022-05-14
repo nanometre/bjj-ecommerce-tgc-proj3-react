@@ -61,22 +61,22 @@ export const CartProvider = ({ children }) => {
     const addToCart = async () => {
         if (token) {
             try {
-                await axiosAPI.post(`/cart/${selection.variant_id}/add`,
+                await toast.promise(axiosAPI.post(`/cart/${selection.variant_id}/add`,
                     { quantity: `${selection.quantity}` },
                     {
                         headers: {
                             'Authorization': `Bearer ${token.accessToken}`
                         }
-                    })
+                    }), {
+                    pending: 'Adding to cart',
+                    success: 'Successfully added to cart.'
+                })
                 setTempVariant({
                     ...tempVariant,
                     stock: tempVariant.stock - selection.quantity
                 })
-                toast.success('Added to cart', {
-                    toastId: 'addedToCart'
-                })
             } catch (err) {
-                if (err.response.status == 403) {
+                if (err.response.status === 403) {
                     toast.error('Quantity exceeds stock available', {
                         toastId: 'addToCartError'
                     })
@@ -97,18 +97,18 @@ export const CartProvider = ({ children }) => {
     const updateCartItem = async (variantId, newQuantity) => {
         if (token) {
             try {
-                await axiosAPI.post(`/cart/${variantId}/quantity/update`,
+                await toast.promise(axiosAPI.post(`/cart/${variantId}/quantity/update`,
                     { newQuantity: newQuantity },
                     {
                         headers: {
                             'Authorization': `Bearer ${token.accessToken}`
                         }
-                    })
-                toast.success('Updated quantity', {
-                    toastId: 'updateCart'
+                    }), {
+                    pending: 'Updating cart item quantity',
+                    success: 'Successfully updated cart item quantity.'
                 })
             } catch (err) {
-                if (err.response.status == 403) {
+                if (err.response.status === 403) {
                     toast.error('Quantity exceeds stock available', {
                         toastId: 'updateCartError'
                     })
@@ -154,7 +154,7 @@ export const CartProvider = ({ children }) => {
                     toastId: 'checkoutError'
                 })
             }
-        } else if (token && cart.length == 0) {
+        } else if (token && cart.length === 0) {
             toast.error('Add something into your cart before checkout', {
                 toastId: 'noItemError'
             })

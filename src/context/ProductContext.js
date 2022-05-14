@@ -26,7 +26,7 @@ export const ProductProvider = ({ children }) => {
             const response = await toast.promise(axiosAPI.post('/products', searchInputs), {
                 pending: 'Fetching products',
                 success: 'Fetched products',
-                error: 'Error fetching products'
+                error: 'Error fetching products. Please try again later.'
             }, {toastId: "fetchProducts"})
             setProducts(response.data)
             setIsLoading(false)
