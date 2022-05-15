@@ -30,7 +30,7 @@ export default function Navbar() {
                         {/* Left links */}
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <Link to="/products" className="nav-link active">Products</Link>
+                                <Link to="/products" className="nav-link active">Shop</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/contact-us" className="nav-link active">Contact Us</Link>

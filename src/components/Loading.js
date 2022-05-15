@@ -14,11 +14,11 @@ export default function Loading() {
     };
 
     return (
-        <div className='m-auto d-flex align-items-center'>
+        <div className='m-auto d-flex align-items-center h-100'>
             <Lottie
                 options={defaultOptions}
-                height={'50%'}
-                width={'50%'}
+                height={'30%'}
+                width={'30%'}
             />
         </div>
     )

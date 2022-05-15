@@ -14,3 +14,5 @@ https://mdbootstrap.com/
 
 react form validation with bootstrap, yup and useform
 https://www.bezkoder.com/react-form-validation-hooks/
+
+All images and videos are taken from Nick Lim (Carpe Diem BJJ Singapore), Lachlan McAdam
