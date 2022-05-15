@@ -9,11 +9,13 @@ import ProductDetails from "./ProductDetails";
 
 export default function Products() {
     return (
+        <div className="container content-container">
             <ProductProvider>
                 <Routes>
                     <Route path="/" element={<ProductListings />} />
                     <Route path="/:product_id" element={<ProductDetails />} />
                 </Routes>
             </ProductProvider>
+        </div>
     )
 }

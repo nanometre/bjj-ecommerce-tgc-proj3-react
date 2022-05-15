@@ -36,7 +36,7 @@ function App() {
               {/* Navbar */}
               <Navbar id="nav" />
               {/* Routes */}
-              <div id="content" className="container">
+              <div id="content">
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/contact-us" element={<ContactUs />} />

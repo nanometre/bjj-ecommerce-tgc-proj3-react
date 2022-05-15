@@ -8,9 +8,11 @@ import Orders from "./Orders"
 
 export default function Users() {
     return (
-        <Routes>
-            <Route path="login-register" element={<UserLoginRegister />} />
-            <Route path="orders" element={<Orders />} />
-        </Routes>
+        <div className="container content-container">
+            <Routes>
+                <Route path="login-register" element={<UserLoginRegister />} />
+                <Route path="orders" element={<Orders />} />
+            </Routes>
+        </div>
     )
 }

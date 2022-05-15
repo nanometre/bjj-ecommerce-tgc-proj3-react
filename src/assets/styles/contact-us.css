@@ -1,0 +1,17 @@
+#contact-us-page {
+    position: relative;
+    height: 100%;
+}
+
+#contact-us-image {
+    object-fit: cover;
+    opacity: 0.4;
+    width: 100vw;
+    /* position: absolute; */
+}
+
+/* #contact-us-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+} */

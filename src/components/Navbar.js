@@ -15,7 +15,7 @@ export default function Navbar() {
                 {/* Container wrapper */}
                 <div className="container-fluid">
                     {/* Toggle button */}
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -25,8 +25,7 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         {/* Navbar brand */}
                         <Link to="/" className="navbar-brand">
-                            <img src={require('../assets/images/favicon.ico')} style={{ height: '2rem', margin: '0 0.25rem' }} alt="Brand Logo" />
-                            Grapple Gears
+                            <img src={require('../assets/images/grapple-gears-logo.png')} style={{ height: '2rem', margin: '0 0.25rem' }} alt="Brand Logo" />
                         </Link>
                         {/* Left links */}
                         <ul className="navbar-nav me-auto">
@@ -47,7 +46,7 @@ export default function Navbar() {
                             <span className="text-white me-3">Hi, {user.first_name}</span>
                             {/* Avatar */}
                             <div className="dropdown d-inline-block">
-                                <a className="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                <a className="dropdown-toggle d-flex align-items-center hidden-arrow" href="/#"
                                     id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
                                     <img src={require('../assets/images/avatar.png')} className="rounded-circle"
                                         height="25" alt="Avatar" loading="lazy" />
@@ -73,7 +72,7 @@ export default function Navbar() {
                                         <Link to="/orders" className="dropdown-item">My Orders</Link>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" onClick={(evt) => {
+                                        <a className="dropdown-item" href="/#" onClick={(evt) => {
                                             evt.preventDefault()
                                             logout()
                                         }}>Logout</a>
@@ -82,7 +81,7 @@ export default function Navbar() {
                             </div>
                         </div>
                     ) : (
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center navbar-nav">
                             <Link to="/users/login-register" className="text-white nav-link">Login or Register</Link>
                         </div>
                     )}

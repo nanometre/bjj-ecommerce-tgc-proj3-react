@@ -55,8 +55,8 @@ export default function UserLoginRegister() {
     return (isLoading ? (
         <Loading />
     ) : (
-        <div className='row'>
-            <div className='col-12 col-md m-3 p-3 shadow-lg rounded-3 border border-dark'>
+        <div className='row justify-content-center'>
+            <div className='col-12 col-md m-3 p-3 shadow-lg rounded-3 border border-dark' style={{width: "350px"}}>
                 <h3>Login</h3>
                 <form onSubmit={handleSubmitLogin(onLoginSubmit)}>
                     <div className='w-75 mx-auto'>
@@ -88,7 +88,7 @@ export default function UserLoginRegister() {
                     </div>
                 </form>
             </div>
-            <div className='col-12 col-md m-3 p-3 shadow-lg rounded-3 border'>
+            <div className='col-12 col-md m-3 p-3 shadow-lg rounded-3 border' style={{width: "350px"}}>
                 <h3>Register</h3>
                 <form onSubmit={handleSubmitRegister(onRegisterSubmit)}>
                     <div className='w-75 mx-auto'>

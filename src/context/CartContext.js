@@ -26,7 +26,11 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         const stripeCheckout = async () => {
             const stripePromise = loadStripe(checkoutResponse.publishableKey)
-            const stripe = await stripePromise
+            const stripe = await toast.promise(stripePromise, {
+                pending: 'Checking out cart',
+                success: 'Redirecting to Stripe',
+                error: 'Error checking out cart. Please try again later.'
+            })
             stripe.redirectToCheckout({ sessionId: checkoutResponse.sessionId })
         }
         if (Object.keys(checkoutResponse).length !== 0) {
