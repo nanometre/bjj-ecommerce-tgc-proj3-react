@@ -70,7 +70,7 @@ export default function ProductDetails() {
                             <Carousel autoFocus={true} emulateTouch={true} useKeyboardArrows={true}>
                                 {oneProduct.variants?.length === 0 ?
                                     <div>
-                                        <img src={process.env.REACT_APP_NO_IMAGE_URL} alt={oneProduct.product?.product_name} />
+                                        <img src='http://res.cloudinary.com/nanometre/image/upload/v1651226796/yuyr6i2kxlmivpgxrs8r.png' alt={oneProduct.product?.product_name} />
                                         <p className="legend">No image available for this product</p>
                                     </div> :
                                     oneProduct.variants?.map((v, i) =>

@@ -7,7 +7,7 @@ export default function ProductCard(props) {
             <img src={
                 props.p?.variants?.[0]?.product_image_url ? 
                 props.p?.variants?.[0]?.product_image_url :
-                process.env.REACT_APP_NO_IMAGE_URL
+                'http://res.cloudinary.com/nanometre/image/upload/v1651226796/yuyr6i2kxlmivpgxrs8r.png'
                 } className="card-img-top" alt={props.p?.product_name} />
             <div className="card-body text-center">
                 <h5 className="card-title">{props.p?.product_name}</h5>
