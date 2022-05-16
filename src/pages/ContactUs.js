@@ -1,6 +1,5 @@
 import React from "react";
 import { toast } from "react-toastify";
-import "../assets/styles/contact-us.css"
 
 export default function ContactUs() {
     const onContactUsSubmit = () => {

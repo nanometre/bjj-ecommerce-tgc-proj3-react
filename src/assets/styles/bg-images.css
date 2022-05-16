@@ -1,0 +1,26 @@
+/* #home-page {
+    background-image: url('../images/home-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+} */
+
+#contact-us-page {
+    background-image: url('../images/contact-us-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+#login-register-page {
+    background-image: url('../images/login-register-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}

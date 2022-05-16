@@ -5,7 +5,6 @@ import { loginSchema, registerSchema } from '../assets/schema';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import '../assets/styles/form.css'
-import '../assets/styles/login-register.css'
 
 export default function UserLoginRegister() {
     // state and functions from context

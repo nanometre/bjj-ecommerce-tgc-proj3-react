@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 import "./assets/styles/app.css"
+import "./assets/styles/bg-images.css"
 
 // import page components
 import Navbar from "./components/Navbar";

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import UserContext from "../context/UserContext";
 import Loading from "../components/Loading";
-import "../assets/styles/home.css"
 
 export default function Home() {
     const { isLoading } = useContext(UserContext)
