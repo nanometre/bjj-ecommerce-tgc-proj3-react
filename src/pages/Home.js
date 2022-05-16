@@ -21,7 +21,9 @@ export default function Home() {
                     <p>Browse and shop BJJ and MMA gears from multiple brands. If you would like to see other brands or products in our collection,
                         <span> <Link to="/contact-us" className="text-light">contact us</Link></span>
                         !</p>
-                    <button className="btn btn-light btn-outline-dark">Shop now!</button>
+                    <div>
+                        <Link to={"/products"} className="btn btn-light btn-outline-dark">Shop now!</Link>
+                    </div>
                 </div>
             </div>
             {/* <div className="container-fluid py-4">
