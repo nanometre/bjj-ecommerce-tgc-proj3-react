@@ -56,7 +56,9 @@ export default function Navbar() {
                                         </span>
                                         : null}
                                 </a>
-                                <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end" 
+                                    aria-labelledby="navbarDropdownMenuAvatar"
+                                    style={{minWidth: '5rem'}}>
                                     <li>
                                         <Link to="/cart" className="dropdown-item">
                                             My Cart

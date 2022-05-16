@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard(props) {
     return (
-        <div className="card shadow-lg rounded-3 border border-dark m-3" style={{ width: "15rem" }}>
+        <div className="card shadow-lg rounded-3 border border-dark m-2" style={{ width: "13rem" }}>
             <img src={
                 props.p?.variants?.[0]?.product_image_url ? 
                 props.p?.variants?.[0]?.product_image_url :
