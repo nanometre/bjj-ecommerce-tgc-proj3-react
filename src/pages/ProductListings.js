@@ -17,7 +17,7 @@ export default function ProductListings() {
             </div>
             <div className="container-fluid py-4">
                 <div className="container content-container">
-                    <div>
+                    <div className="w-100">
                         <h3>Shop</h3>
                         <div className="row">
                             <div className="col-lg-3">
