@@ -22,18 +22,10 @@ export default function Home() {
                         <span> <Link to="/contact-us" className="text-light">contact us</Link></span>
                         !</p>
                     <div>
-                        <Link to={"/products"} className="btn btn-light btn-outline-dark">Shop now!</Link>
+                        <Link to={"/products"} className="btn btn-light btn-outline-dark mt-2">Shop now!</Link>
                     </div>
                 </div>
             </div>
-            {/* <div className="container-fluid py-4">
-                <div className="container content-container">
-                    <div className="card">
-                        <h4>One-stop for your grappling needs</h4>
-                        <button className="btn btn-light btn-outline-dark">Shop now!</button>
-                    </div>
-                </div>
-            </div> */}
         </React.Fragment>
     )
     )

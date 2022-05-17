@@ -2,16 +2,16 @@
 
 
 The live demo to the frontend web application can be accessed [here](https://grapple-gears.netlify.app/).
->Note: This is a bootcamp project where a fullstack web framework and React frontend was created.
+>This is a bootcamp project where a fullstack web framework and React frontend was created.
 
 ## Index
 
 1. [Project Summary](#1-project-summary)
 2. [UI/UX](#2-uiux)
-3. [Features](#3-features)
+3. [Frontend Web Application Features](#3-frontend-web-application-features)
 4. [Testing](#4-testing)
 5. [Technologies Used](#5-technologies-used)
-6. [API & Sample Document](#6-api--sample-document)
+6. [API & Database](#6-api--database)
 7. [Deployment](#7-deployment)
 8. [Credits](#8-credits)
 
@@ -75,28 +75,30 @@ All pages of the web application can be accessed through the navigation bar. The
 The wireframes for mobile and laptop display for the web application can be accessed [here](https://benedict19472.invisionapp.com/freehand/Wireframe--TGC-Proj-3--mXGLRhfsr?dsid_h=503ba82c8a8ab93bf1d9aa30cf17eabdbacc48e25df6719698deb92da27dbbb0&uid_h=5a1828007a271c9d5497b0558b46e0ef2ead753c17efbedf4d212e9bec42337b)
 
 ### Surface
-**Colours**: 
+**Colours**: A combination of black and white is used for the web application. The color combination create a contrast to achieve a clean and simplistic look.
 
-**Font Choice**: 
+**Font Choice**: Roboto font is used for all the headings and Libre Franklin font is used for the other type of texts. The sans-serif font style are selected to make texts legible and readable. Standard font sizes are used as the web application is catered for adults.
 
-**Layout**: 
+**Layout**: Simple layout with navigation bar and buttons which enable users to easily navigate the web application.
 
 
-## 3. Features
+## 3. Frontend Web Application Features
+>Features for the backend web application can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express#4-backend-web-application-structure-and-features)
+
 Features                                  | Descriptions
 ----------------------------------------- | ---------------------------------------------
-
-### Limitations and future implementations
-Limitations                               | Future Implementations to Resolve Limitations
------------------------------------------ | ---------------------------------------------
+Registration, login and logout of account | Users can register for an account using an unqiue email (email is not tagged to an existing account) and logging in and out of an account
+View and search all available products    | Master detail view for products and allow users to search and filter products based on certain search criteria
+Add to cart and cart management           | Allow user to add product to cart after logging in and, delete and update cart items. Users can checkout their cart items through a payment service provider, Stripe.
+View orders                               | Users can view all thier pending and completed orders.
 
 
 ## 4. Testing
-
 ### Test Cases
-
+Manual and unit testing have been done for this project. The test cases for the critical functionality of this project are documented [here]().
 
 ### Testing for Mobile Responsiveness
+Testing for mobile responsiveness was done using Responsively across iPhone X, iPad, and Generic Laptop.
 
 
 ## 5. Technologies Used
@@ -115,11 +117,13 @@ Technology                                                                      
 [Google fonts](https://fonts.google.com/)                                                   | Google fonts is used to select font families for the web application.
 
 
-## 6. API & Sample Document
+## 6. API & Database
 The project makes use of a custom API which retrieve and manage data. The API and database was built using ```Express.js```, ```Bookshelf.js``` and ```db-migrate```. The source code and documentation for the API and database can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express). The API and database are [hosted on heroku](https://bjj-ecom-tgc-proj3-express.herokuapp.com/) and is accessible from the frontend 
+
 
 ## 7. Deployment
 The frontend web application is deployed on Netlify. The live demo to the web application can be accessed [here](https://grapple-gears.netlify.app/).
+
 
 ## 8. Credits
 - Web layouts are inspired by [MDBootstrap](https://mdbootstrap.com/)

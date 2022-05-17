@@ -21,6 +21,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
 import Checkout from "./pages/Checkout";
+import NotFound from "./pages/NotFound";
 
 // import provider
 import { UserProvider } from "./context/UserContext";
@@ -47,6 +48,7 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/orders" element={<Orders />}/>
                   <Route path="/checkout/*" element={<Checkout />}/>
+                  <Route path="*" element={<NotFound />}/>
                 </Routes>
               </div>
             </CartProvider>
