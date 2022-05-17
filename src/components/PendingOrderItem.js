@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function PendingOrderItem(props) {
     return (
@@ -42,7 +43,9 @@ export default function PendingOrderItem(props) {
                                                 className="img-fluid" alt="" />
                                         </div>
                                         <div className="col-md-3 mb-2 mb-md-0">
-                                            <p className="mb-0">{oi.variant.product.product_name}</p>
+                                            <p className="mb-0">
+                                                <Link className="text-dark" to={'/products/' + oi.variant.product_id}>{oi.variant.product.product_name}</Link>
+                                            </p>
                                         </div>
                                         <div className="col-md-3 mb-2 mb-md-0">
                                             <span className="text-muted">Size: </span>{oi.variant.size.size_name}<br />

@@ -3,6 +3,7 @@ import CartContext from "../context/CartContext";
 import { updateCartQuantitySchema } from "../assets/schema";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
+import { Link } from "react-router-dom";
 
 export default function CartItem(props) {
     const { cart, setCart, getCart, updateCartItem, deleteCartItem } = useContext(CartContext)
@@ -42,7 +43,9 @@ export default function CartItem(props) {
                             className="img-fluid rounded-3" alt={props.c.variant.product.product_name} />
                     </div>
                     <div className="col-md-3 col-lg-3 col-xl-3 mb-2 mb-md-0">
-                        <p className="lead fw-normal mb-2">{props.c.variant.product.product_name}</p>
+                        <p className="lead fw-normal mb-2">
+                            <Link className="text-dark" to={'/products/' + props.c.variant.product.product_id}>{props.c.variant.product.product_name}</Link>
+                        </p>
                         <span className="text-muted">Size: </span>{props.c.variant.size.size_name}<br />
                         <span className="text-muted">Color: </span>{props.c.variant.color.color_name}<br />
                         <span className="text-muted">Cost: </span>SGD {(props.c.variant.product.cost / 100).toFixed(2)}

@@ -20,10 +20,10 @@ export default function ProductListings() {
                     <div>
                         <h3>Shop</h3>
                         <div className="row">
-                            <div className="col-lg-3 col-xxl-2">
+                            <div className="col-lg-3">
                                 <SearchForm />
                             </div>
-                            <div className="col-lg-9 col-xxl-10 h-100 d-flex flex-wrap justify-content-around">
+                            <div className="col-lg-9 h-100 d-flex flex-wrap justify-content-around">
                                 {products?.map((p, i) =>
                                     <React.Fragment key={i}>
                                         <ProductCard p={p} />

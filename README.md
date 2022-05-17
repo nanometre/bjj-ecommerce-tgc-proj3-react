@@ -2,7 +2,7 @@
 
 
 The live demo to the frontend web application can be accessed [here](https://grapple-gears.netlify.app/).
->This is a bootcamp project where a fullstack web framework and React frontend was created.
+>This is a bootcamp project where a full stack web framework and React frontend was created.
 
 ## Index
 
@@ -36,15 +36,15 @@ To create an e-commerce web application to sell BJJ products exclusively. The or
 
 **BJJ Product Brand Owners | Adults (20 - 60 years old)**:
 
-User Story: Small brand owners who are starting out often face difficulties to enter the market when there are existing big players in the field. And as a small business, they generally have limited budget for advertisement which make it difficult to gain exposure on their products. For large brand owners, a cheap way to gain additional exposure on their products would benefit their business.
+User Story: Small brand owners who are starting out often face difficulties to enter the market when there are existing big players in the field. And as a small business, they have limited budget for advertisement which make it difficult to gain exposure on their products. For large brand owners, a cheap way to gain additional exposure on their products would benefit their business.
 
-Acceptance Criteria: A convenient and cost effective way to advertise their products to a greater customer pool, hence allowing their business to grow.
+Acceptance Criteria: A convenient and cost-effective way to advertise their products to a greater customer pool, hence allowing their business to grow.
 
 **Customers | Adults (20 - 60 years old)**:
 
-User Story: BJJ product brands owners either only sell their products on their web application or sell a small variety of their products on general marketplaces. For potential customers to browse all of the specific brand's products, they would need to visit the brand's web application. Hence, to browse and search multiple brands' products, customer would be required to navigate through multiple web applications.
+User Story: BJJ product brands owners either only sell their products on their web application or sell a small variety of their products on general marketplaces. For potential customers to browse all the specific brand's products, they would need to visit the brand's web application. Hence, to browse and search multiple brands' products, customer would be required to navigate through multiple web applications.
 
-Acceptance Criteria: To easily browse a variety of BJJ products from different brands, search for a specific product based on certain criteria, and purchasing the products on a single web application. Being able to discover new brands would be an added benefit.
+Acceptance Criteria: To easily browse a variety of BJJ products from varied brands, search for a specific product based on certain criteria, and purchasing the products on a single web application. Being able to discover new brands would be an added benefit.
 
 ### Scope
 
@@ -56,7 +56,7 @@ Acceptance Criteria: To easily browse a variety of BJJ products from different b
     * Management of users (RUD operations)
 
 * For customers (frontend web application):
-    * Registration, login and logout for customers
+    * Registration, login, and logout for customers
     * Add to cart and management of cart items
     * View orders
     * View and search products
@@ -75,9 +75,9 @@ All pages of the web application can be accessed through the navigation bar. The
 The wireframes for mobile and laptop display for the web application can be accessed [here](https://benedict19472.invisionapp.com/freehand/Wireframe--TGC-Proj-3--mXGLRhfsr?dsid_h=503ba82c8a8ab93bf1d9aa30cf17eabdbacc48e25df6719698deb92da27dbbb0&uid_h=5a1828007a271c9d5497b0558b46e0ef2ead753c17efbedf4d212e9bec42337b)
 
 ### Surface
-**Colours**: A combination of black and white is used for the web application. The color combination create a contrast to achieve a clean and simplistic look.
+**Colours**: A combination of black and white is used for the web application. The colour combination creates a contrast to achieve a clean and simplistic look.
 
-**Font Choice**: Roboto font is used for all the headings and Libre Franklin font is used for the other type of texts. The sans-serif font style are selected to make texts legible and readable. Standard font sizes are used as the web application is catered for adults.
+**Font Choice**: Roboto font is used for all the headings and Libre Franklin font is used for the other type of texts. The sans-serif font style is selected to make texts legible and readable. Standard font sizes are used as the web application is catered for adults.
 
 **Layout**: Simple layout with navigation bar and buttons which enable users to easily navigate the web application.
 
@@ -87,15 +87,15 @@ The wireframes for mobile and laptop display for the web application can be acce
 
 Features                                  | Descriptions
 ----------------------------------------- | ---------------------------------------------
-Registration, login and logout of account | Users can register for an account using an unqiue email (email is not tagged to an existing account) and logging in and out of an account
+Registration, login, and logout of account | Users can register for an account using a unique email (email is not tagged to an existing account) and logging in and out of an account
 View and search all available products    | Master detail view for products and allow users to search and filter products based on certain search criteria
 Add to cart and cart management           | Allow user to add product to cart after logging in and, delete and update cart items. Users can checkout their cart items through a payment service provider, Stripe.
-View orders                               | Users can view all thier pending and completed orders.
+View orders                               | Users can view all their pending and completed orders.
 
 
 ## 4. Testing
 ### Test Cases
-Manual and unit testing have been done for this project. The test cases for the critical functionality of this project are documented [here]().
+Manual and unit testing have been done for this project. The test cases for the critical functionality of this project are documented [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-react/blob/main/src/assets/images/readme-images/test-cases.pdf).
 
 ### Testing for Mobile Responsiveness
 Testing for mobile responsiveness was done using Responsively across iPhone X, iPad, and Generic Laptop.
@@ -118,7 +118,7 @@ Technology                                                                      
 
 
 ## 6. API & Database
-The project makes use of a custom API which retrieve and manage data. The API and database was built using ```Express.js```, ```Bookshelf.js``` and ```db-migrate```. The source code and documentation for the API and database can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express). The API and database are [hosted on heroku](https://bjj-ecom-tgc-proj3-express.herokuapp.com/) and is accessible from the frontend 
+The project makes use of a custom API which retrieve and manage data. The API and database were built using ```Express.js```, ```Bookshelf.js``` and ```db-migrate```. The source code and documentation for the API and database can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express). The API and database are [hosted on Heroku](https://bjj-ecom-tgc-proj3-express.herokuapp.com/) and is accessible from the frontend 
 
 
 ## 7. Deployment
@@ -128,7 +128,7 @@ The frontend web application is deployed on Netlify. The live demo to the web ap
 ## 8. Credits
 - Web layouts are inspired by [MDBootstrap](https://mdbootstrap.com/)
 
-- Images and videos are taken from [Nick Lim (Carpe Diem BJJ Singapore)](https://instagram.com/nickycdbjj?igshid=YmMyMTA2M2Y=), Lachlan McAdam, [Progress JJ](https://progressjj.co.uk/) and [Scramble Brand](https://scramblestuff.com/).
+- Images and videos are taken from [Nick Lim (Carpe Diem BJJ Singapore)](https://instagram.com/nickycdbjj?igshid=YmMyMTA2M2Y=), Lachlan McAdam, [Progress JJ](https://progressjj.co.uk/), and [Scramble Brand](https://scramblestuff.com/).
 
 - User icon (created by Freepik) taken from [Flaticon](https://www.flaticon.com/free-icons/user)
 
