@@ -20,6 +20,7 @@ import Users from "./pages/Users";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
+import Checkout from "./pages/Checkout";
 
 // import provider
 import { UserProvider } from "./context/UserContext";
@@ -45,6 +46,7 @@ function App() {
                   <Route path="/products/*" element={<Products />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/orders" element={<Orders />}/>
+                  <Route path="/checkout/*" element={<Checkout />}/>
                 </Routes>
               </div>
             </CartProvider>

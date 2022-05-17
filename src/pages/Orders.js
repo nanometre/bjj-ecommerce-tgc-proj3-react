@@ -32,11 +32,13 @@ export default function Orders() {
         }
         getOrders()
     }, [token])
-    console.log(pendingOrders)
-    console.log(completedOrders)
     // return jsx
     return (!token ? (
-        <h5>Please login to access your orders</h5>
+        <div className="container content-container my-4">
+            <div className="p-4 rounded-3 shadow-lg border border-dark">
+                <h5>Please login to access your orders</h5>
+            </div>
+        </div>
     ) : (
         <React.Fragment>
             <div className="container-fluid py-4">

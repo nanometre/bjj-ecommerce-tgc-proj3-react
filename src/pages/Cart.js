@@ -13,7 +13,11 @@ export default function Cart() {
     }
 
     return (!token ? (
-        <h5>Please login to access the cart</h5>
+        <div className="container content-container my-4">
+            <div className="p-4 rounded-3 shadow-lg border border-dark">
+                <h5>Please login to access the cart</h5>
+            </div>
+        </div>
     ) : (
         <React.Fragment>
             <div className="container-fluid py-4">
