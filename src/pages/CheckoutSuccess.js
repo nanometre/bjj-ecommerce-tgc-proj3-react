@@ -5,8 +5,10 @@ export default function CheckoutSuccess() {
     return (
         <div className="container content-container my-4">
             <div className="p-4 rounded-3 shadow-lg border border-dark">
-                <h3>Success!</h3>
-                <p>Your order has been processed! Click <Link to="/products" className="text-dark">here</Link> continue shopping.</p>
+                <h3>Your order has been processed!</h3>
+                <div className='mt-4'>
+                    <p>View your <Link to="/orders" className="text-dark fw-bold">order(s)</Link>. Or <Link to="/products" className="text-dark fw-bold">shop</Link> for other products.</p>
+                </div>
             </div>
         </div>
     )
