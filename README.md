@@ -1,5 +1,6 @@
 # Grapple Gears
-
+<img src="src\assets\images\readme-images\full-home-page-screenshot.jpg" style="display: block">
+<br>
 
 The live demo to the frontend web application can be accessed [here](https://grapple-gears.netlify.app/).
 >This is a bootcamp project where a full stack web framework and React frontend was created.
