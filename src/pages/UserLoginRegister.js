@@ -5,6 +5,7 @@ import { loginSchema, registerSchema } from '../assets/schema';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import '../assets/styles/form.css'
+import { Link } from 'react-router-dom';
 
 export default function UserLoginRegister() {
     // state and functions from context
@@ -84,9 +85,10 @@ export default function UserLoginRegister() {
                                     <label htmlFor='loginPassword' className="text-muted">Password</label>
                                     <div className="invalid-feedback">{errorsLogin.password?.message}</div>
                                 </div>
-                                <div className='custom-btn-group'>
+                                <div className='d-grid gap-2 mb-2'>
                                     <button type="submit" className="btn btn-dark btn-outline-light">Login</button>
                                 </div>
+                                <Link to="/users/login-register" className='text-dark'>Forgot your password?</Link>
                             </div>
                         </form>
                     </div>
@@ -148,7 +150,7 @@ export default function UserLoginRegister() {
                                     <label htmlFor='registerConfirmPassword' className="text-muted">Confirm Password</label>
                                     <div className="invalid-feedback">{errorsRegister.confirm_password?.message}</div>
                                 </div>
-                                <div className='custom-btn-group'>
+                                <div className='d-grid gap-2'>
                                     <button type="submit" className="btn btn-dark btn-outline-light">Register</button>
                                 </div>
                             </div>

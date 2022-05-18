@@ -85,13 +85,17 @@ The wireframes for mobile and laptop display for the web application can be acce
 ## 3. Frontend Web Application Features
 >Features for the backend web application can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express#4-backend-web-application-structure-and-features)
 
-Features                                  | Descriptions
------------------------------------------ | ---------------------------------------------
+Features                                   | Descriptions
+------------------------------------------ | ---------------------------------------------
 Registration, login, and logout of account | Users can register for an account using a unique email (email is not tagged to an existing account) and logging in and out of an account
-View and search all available products    | Master detail view for products and allow users to search and filter products based on certain search criteria
-Add to cart and cart management           | Allow user to add product to cart after logging in and, delete and update cart items. Users can checkout their cart items through a payment service provider, Stripe.
-View orders                               | Users can view all their pending and completed orders.
+View and search all available products     | Master detail view for products and allow users to search and filter products based on certain search criteria
+Add to cart and cart management            | Allow user to add product to cart after logging in and, delete and update cart items. Users can checkout their cart items through a payment service provider, Stripe.
+View orders                                | Users can view all their pending and completed orders.
 
+### Limitations and future implementations
+Limitations                               | Future Implementations to Resolve Limitations
+----------------------------------------- | ---------------------------------------------
+There is no implementation for users to reset their password. If users forget their password, they will never be able to access their account. | Implement a feature where users can reset their passwords on the frontend web application.
 
 ## 4. Testing
 ### Test Cases

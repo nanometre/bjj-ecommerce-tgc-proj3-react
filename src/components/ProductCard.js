@@ -12,7 +12,7 @@ export default function ProductCard(props) {
             <div className="card-body text-center">
                 <h5 className="card-title">{props.p?.product_name}</h5>
                 <p className="card-text">SGD {(props.p?.cost / 100).toFixed(2)}</p>
-                <div className="custom-btn-group">
+                <div className="custom-btn-group justify-content-center">
                     <Link to={"/products/" + props.p?.product_id} 
                         className="btn btn-dark btn-outline-light">More Info</Link>
                 </div>
