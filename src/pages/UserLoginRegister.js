@@ -90,7 +90,7 @@ export default function UserLoginRegister() {
                             </div>
                         </form>
                     </div>
-                    <div className='col-12 col-md mx-3 p-3 shadow-lg rounded-3 border bg-light' style={{ width: "320px" }}>
+                    <div className='col-12 col-md mx-3 p-3 shadow-lg rounded-3 border border-dark bg-light' style={{ width: "320px" }}>
                         <h3>Register</h3>
                         <form onSubmit={handleSubmitRegister(onRegisterSubmit)}>
                             <div className='w-75 mx-auto'>

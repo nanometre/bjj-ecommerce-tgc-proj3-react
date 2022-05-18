@@ -22,8 +22,10 @@ export const registerSchema = yup.object().shape({
         .email("Email is not valid"),
     register_password: yup.string()
         .required("Password is required")
-        .min(8, 'Password must be at least 8 characters')
-        .max(80, "Password must not exceed 50 characters"),
+        .min(8, "Password must be 8 characters or more")
+        .matches(/[a-z]+/, "Password must have one lowercase character")
+        .matches(/[A-Z]+/, "Password must have one uppercase character")
+        .matches(/\d+/, "Password must have one number"),
     confirm_password: yup.string()
         .required("Confirm password is required")
         .oneOf([yup.ref('register_password'), null], 'Passwords do not match')
