@@ -42,7 +42,7 @@ export default function Navbar() {
 
                     {/* Right elements */}
                     {user ? (
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center py-2">
                             <span className="text-white me-3">Hi, {user.first_name}</span>
                             {/* Avatar */}
                             <div className="dropdown d-inline-block">

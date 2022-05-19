@@ -11,15 +11,15 @@ export default function Footer() {
                     {/* Section: Social media */}
                     <section className="mb-4">
                         {/* Email */}
-                        <a className="btn btn-outline-light m-1" target="_blank" rel="noreferrer noopener"
+                        <a className="btn btn-outline-light border-0 m-1" target="_blank" rel="noreferrer noopener"
                             href="mailto:benedictwcy@hotmail.com" role="button"><i className="bi bi-envelope-fill"></i></a>
 
                         {/* Linkedin */}
-                        <a className="btn btn-outline-light m-1" target="_blank" rel="noreferrer noopener"
+                        <a className="btn btn-outline-light border-0 m-1" target="_blank" rel="noreferrer noopener"
                             href="https://www.linkedin.com/in/benedictwcy/" role="button"><i className="bi bi-linkedin"></i></a>
 
                         {/* Github */}
-                        <a className="btn btn-outline-light m-1" target="_blank" rel="noreferrer noopener"
+                        <a className="btn btn-outline-light border-0 m-1" target="_blank" rel="noreferrer noopener"
                             href="https://github.com/nanometre" role="button"><i className="bi bi-github"></i></a>
                     </section>
                     {/* Section: Social media */}

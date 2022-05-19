@@ -28,3 +28,15 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (min-width: 768px) {
+    .nav-link,
+    #navbarDropdownMenuAvatar {
+        transition: transform .3s;
+    }
+    
+    .nav-link:hover,
+    #navbarDropdownMenuAvatar:hover {
+        transform: scale(1.1);
+    }
+}

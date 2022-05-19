@@ -97,6 +97,7 @@ View orders                                | Users can view all their pending an
 Limitations                               | Future Implementations to Resolve Limitations
 ----------------------------------------- | ---------------------------------------------
 There is no implementation for users to reset their password. If users forget their password, they will never be able to access their account. | Implement a feature where users can reset their passwords on the frontend web application.
+All products are currently loaded in a single page on the master view. As the product catalogue size grows, this could increase the time required to load the page and it is not scalable. | Implement a pagination feature where more products will only load as the user click on the next page or scroll to the end of a 'page'.
 
 ## 4. Testing
 ### Test Cases

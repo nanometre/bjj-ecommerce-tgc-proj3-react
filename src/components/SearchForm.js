@@ -21,7 +21,7 @@ export default function SearchForm() {
     }
 
     return (
-        <div className="accordion mt-3 border border-dark rounded-3 shadow-lg" id="accordionSearch">
+        <div className="accordion mt-2 border border-dark rounded-3 shadow-lg" id="accordionSearch">
             <div className="accordion-item">
                 <h2 className="accordion-header" id="headingSearch">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
