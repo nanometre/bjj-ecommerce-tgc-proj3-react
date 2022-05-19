@@ -12,6 +12,7 @@ export const ProductProvider = ({ children }) => {
     const [categories, setCategories] = useState([])
     const [brands, setBrands] = useState([])
     const [products, setProducts] = useState([])
+    const [otherProducts, setOtherProducts] = useState([])
     const [oneProduct, setOneProduct] = useState({ product: "", variants: [] })
     const [searchInputs, setSearchInputs] = useState({})
     const [isLoading, setIsLoading] = useState(true)
@@ -62,6 +63,7 @@ export const ProductProvider = ({ children }) => {
     // return context provider
     return <ProductContext.Provider value={{
         materials, weaves, categories, brands, products,
+        otherProducts, setOtherProducts,
         oneProduct, setOneProduct,
         searchInputs, setSearchInputs,
         isLoading, setIsLoading,

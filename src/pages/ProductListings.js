@@ -15,6 +15,10 @@ export default function ProductListings() {
                 <img src={require('../assets/images/product-listing-bg.jpg')}
                     style={{ width: '100%', height: '50vh', objectFit: 'cover'}} alt='Men hugging after a match' />
             </div>
+            <div className="w-50 pt-4 text-center fst-italic mx-auto">
+            Jiu jitsu is a philosophy that’s expressed physically<br/>
+            - Ryan Hall
+            </div>
             <div className="container-fluid py-4">
                 <div className="container content-container">
                     <div className="w-100">

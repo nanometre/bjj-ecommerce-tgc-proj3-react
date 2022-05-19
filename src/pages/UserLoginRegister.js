@@ -60,7 +60,7 @@ export default function UserLoginRegister() {
             <div className="container content-container">
                 <div className='row justify-content-center'>
                     <div className='col-12 col-md mx-3 p-3 mb-md-0 mb-3 shadow-lg rounded-3 border border-dark bg-light' style={{ width: "320px" }}>
-                        <h3>Login</h3>
+                        <h3 className='text-center'>Login</h3>
                         <form onSubmit={handleSubmitLogin(onLoginSubmit)}>
                             <div className='w-75 mx-auto'>
                                 <div className="form-floating mb-3">
@@ -93,7 +93,7 @@ export default function UserLoginRegister() {
                         </form>
                     </div>
                     <div className='col-12 col-md mx-3 p-3 shadow-lg rounded-3 border border-dark bg-light' style={{ width: "320px" }}>
-                        <h3>Register</h3>
+                        <h3 className="text-center">Register</h3>
                         <form onSubmit={handleSubmitRegister(onRegisterSubmit)}>
                             <div className='w-75 mx-auto'>
                                 <div className="form-floating mb-3">

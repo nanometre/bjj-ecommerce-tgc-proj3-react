@@ -9,7 +9,7 @@ export default function Footer() {
                 {/* Grid container */}
                 <div className="container p-4 pb-0">
                     {/* Section: Social media */}
-                    <section className="mb-4">
+                    <section className="mb-3">
                         {/* Email */}
                         <a className="btn btn-outline-light border-0 m-1" target="_blank" rel="noreferrer noopener"
                             href="mailto:benedictwcy@hotmail.com" role="button"><i className="bi bi-envelope-fill"></i></a>

@@ -136,6 +136,8 @@ The frontend web application is deployed on Netlify. The live demo to the web ap
 
 - Images and videos are taken from [Nick Lim (Carpe Diem BJJ Singapore)](https://instagram.com/nickycdbjj?igshid=YmMyMTA2M2Y=), Lachlan McAdam, [Progress JJ](https://progressjj.co.uk/), and [Scramble Brand](https://scramblestuff.com/).
 
+- Quote from Ryan Hall in [Lex Fridman Podcast](https://www.youtube.com/watch?v=hhEwWghH_XM&t=2722s)
+
 - User icon (created by Freepik) taken from [Flaticon](https://www.flaticon.com/free-icons/user)
 
 - [Using Axios for HTTP method with RESTful API in React](https://edupala.com/react-axios-for-http-method-with-rest-api/)

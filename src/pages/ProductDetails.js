@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ProductContext from "../context/ProductContext";
 import CartContext from "../context/CartContext";
 import Loading from "../components/Loading";
+import ProductCard from "../components/ProductCard";
 import { addToCartQuantitySchema } from "../assets/schema";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -12,7 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default function ProductDetails() {
     // context
     const {
-        oneProduct, getProductById, isLoading, setIsLoading
+        products, otherProducts, setOtherProducts, oneProduct, getProductById, isLoading, setIsLoading
     } = useContext(ProductContext)
     const {
         selection, setSelection, tempVariant, setTempVariant,
@@ -23,6 +24,15 @@ export default function ProductDetails() {
     const params = useParams()
     const productId = params.product_id
 
+    // useEffect to get recommendations
+    useEffect(() => {
+        // filter out current product, then randomised all products (other than the current one) to show as recommendations
+        setOtherProducts(products?.filter(p => p.product_id !== parseInt(productId))
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value))
+    }, [products, productId])
+
     // useEffect on params change
     useEffect(() => {
         const getProduct = async () => {
@@ -30,10 +40,11 @@ export default function ProductDetails() {
             await getProductById(productId)
         }
         getProduct()
+        // set variant selection as empty
         setSelection({ variant_id: "", quantity: "" })
     }, [productId])
 
-    // useEffec on variant selection change
+    // useEffect on variant selection change
     useEffect(() => {
         if (selection.variant_id !== "") {
             const variant = oneProduct.variants.filter(v => v.variant_id === parseInt(selection.variant_id))
@@ -63,8 +74,8 @@ export default function ProductDetails() {
     ) : (
         <React.Fragment>
             <div className="container-fluid py-4 h-100">
-                <div className="container content-container">
-                    <div className="row">
+                <div className="container content-container flex-column">
+                    <div className="row mb-3 ">
                         {/* carousel */}
                         <div className="col-12 col-md-6">
                             <Carousel autoFocus={true} emulateTouch={true} useKeyboardArrows={true}>
@@ -146,6 +157,16 @@ export default function ProductDetails() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="w-100">
+                        <h3 className="text-center">Other products you may like!</h3>
+                        <div className="d-flex flex-wrap justify-content-around">
+                            {otherProducts?.slice(0, 3).map((op, i) =>
+                                <React.Fragment key={i}>
+                                    <ProductCard p={op} />
+                                </React.Fragment>
+                            )}
                         </div>
                     </div>
                 </div>
