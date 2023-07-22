@@ -7,14 +7,27 @@ The live demo to the frontend web application can be accessed [here](https://gra
 
 ## Index
 
-1. [Project Summary](#1-project-summary)
-2. [UI/UX](#2-uiux)
-3. [Frontend Web Application Features](#3-frontend-web-application-features)
-4. [Testing](#4-testing)
-5. [Technologies Used](#5-technologies-used)
-6. [API & Database](#6-api--database)
-7. [Deployment](#7-deployment)
-8. [Credits](#8-credits)
+- [Grapple Gears](#grapple-gears)
+  - [Index](#index)
+  - [1. Project Summary](#1-project-summary)
+    - [Project Context](#project-context)
+  - [2. UI/UX](#2-uiux)
+    - [Strategy](#strategy)
+      - [Organisation Objectives](#organisation-objectives)
+      - [User Objectives](#user-objectives)
+    - [Scope](#scope)
+    - [Structure](#structure)
+    - [Skeleton](#skeleton)
+    - [Surface](#surface)
+  - [3. Frontend Web Application Features](#3-frontend-web-application-features)
+    - [Limitations and future implementations](#limitations-and-future-implementations)
+  - [4. Testing](#4-testing)
+    - [Test Cases](#test-cases)
+    - [Testing for Mobile Responsiveness](#testing-for-mobile-responsiveness)
+  - [5. Technologies Used](#5-technologies-used)
+  - [6. API \& Database](#6-api--database)
+  - [7. Deployment](#7-deployment)
+  - [8. Credits](#8-credits)
 
 
 ## 1. Project Summary
@@ -124,7 +137,7 @@ Technology                                                                      
 
 
 ## 6. API & Database
-The project makes use of a custom API which retrieve and manage data. The API and database were built using ```Express.js```, ```Bookshelf.js``` and ```db-migrate```. The source code and documentation for the API and database can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express). The API and database are [hosted on Heroku](https://bjj-ecom-tgc-proj3-express.herokuapp.com/) and is accessible from the frontend 
+The project makes use of a custom API which retrieve and manage data. The API and database were built using ```Express.js```, ```Bookshelf.js``` and ```db-migrate```. The source code and documentation for the API and database can be found [here](https://github.com/nanometre/bjj-ecommerce-tgc-proj3-express). The API and database are [hosted on Fly.io](https://bjj-ecom-tgc-proj3-express.fly.dev/) and is accessible from the frontend 
 
 
 ## 7. Deployment
